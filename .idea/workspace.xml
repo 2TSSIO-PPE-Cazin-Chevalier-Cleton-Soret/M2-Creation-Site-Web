@@ -70,7 +70,7 @@
       <file leaf-file-name="inscription.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/view/inscription.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
+            <state relative-caret-position="115">
               <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
             </state>
           </provider>
@@ -138,33 +138,33 @@
         <subPane>
           <expand>
             <path>
-              <item name="RAM-Mission2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RAM" type="b2602c69:ProjectViewProjectNode" />
               <item name="RAM" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="RAM-Mission2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RAM" type="b2602c69:ProjectViewProjectNode" />
               <item name="RAM" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="RAM-Mission2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RAM" type="b2602c69:ProjectViewProjectNode" />
               <item name="RAM" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="RAM-Mission2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RAM" type="b2602c69:ProjectViewProjectNode" />
               <item name="RAM" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="RAM-Mission2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RAM" type="b2602c69:ProjectViewProjectNode" />
               <item name="RAM" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="RAM-Mission2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RAM" type="b2602c69:ProjectViewProjectNode" />
               <item name="RAM" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -222,7 +222,7 @@
       <updated>1537361883742</updated>
       <workItem from="1537361889792" duration="6272000" />
       <workItem from="1537959942657" duration="5023000" />
-      <workItem from="1537964994476" duration="908000" />
+      <workItem from="1537964994476" duration="245000" />
     </task>
     <task id="LOCAL-00001" summary="- Commit iniatial&#10;- Mission 2">
       <created>1537965195499</created>
@@ -246,14 +246,14 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12203000" />
+    <option name="totallyTimeSpent" value="11540000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" weight="0.32943678" />
+      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.32943678" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
@@ -262,7 +262,6 @@
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18020834" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32943678" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3995749" />
@@ -273,6 +272,7 @@
       <window_info anchor="bottom" id="PHP-CGI Server" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32943678" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -413,7 +413,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/view/inscription.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
+        <state relative-caret-position="115">
           <caret line="24" column="28" lean-forward="true" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
         </state>
       </provider>
