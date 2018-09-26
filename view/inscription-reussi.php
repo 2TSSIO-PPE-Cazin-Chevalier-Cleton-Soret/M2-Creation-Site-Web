@@ -11,6 +11,7 @@
         <div class="register__title">
             <h1>Inscription réussi</h1>
         </div>
+        <a class="link" href="../tableau-de-bord.php">Aller sur le tableau de bord</a>
     </div>
 </div>
 </div>

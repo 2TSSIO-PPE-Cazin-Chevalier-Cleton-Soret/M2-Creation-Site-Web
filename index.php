@@ -3,15 +3,9 @@ function __autoload($classname) {
     $filename = "./". $classname .".php";
     include_once($filename);
 }
-?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>RAM Inscription</title>
-    <link rel="stylesheet" href="public/css/main.css">
-</head>
+require 'view/head.php';
+?>
 <body>
 <?php
 

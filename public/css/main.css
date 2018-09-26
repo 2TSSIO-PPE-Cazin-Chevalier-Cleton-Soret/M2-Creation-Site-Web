@@ -45,4 +45,9 @@ body {
   border: 1px solid #229955;
   cursor: pointer;
 }
+
+a.link {
+    text-decoration: none;
+    color: #34495e;
+}
 /*# sourceMappingURL=main.css.map */
