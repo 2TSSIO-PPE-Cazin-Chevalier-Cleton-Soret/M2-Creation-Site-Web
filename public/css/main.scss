@@ -1,0 +1,51 @@
+$background-register: white;
+$grey: #34495e;
+$green: #27ae60;
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato';
+    background: url(../images/background.jpg);
+}
+.register {
+    width: 70vw;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 15vh;
+    padding-bottom: 40px;
+    background: $background-register;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+    &__title h1 {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        color: $grey;
+    }
+
+    &__form {
+        .input-form {
+            display: block;
+            width: 80%;
+            margin: 0 auto;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid rgba($color: $grey, $alpha: 0.6);
+            border-radius: 3px;
+        }
+        .button-submit-form {
+            display: block;
+            width: 81%;
+            margin: 0 auto;
+            padding: 14px;
+            margin-top: 10px;
+            background: $green;
+            color: white;
+            margin-top: 40px;
+            border: 1px solid darken($green, 5%);
+            cursor: pointer;
+        }
+    }
+}
