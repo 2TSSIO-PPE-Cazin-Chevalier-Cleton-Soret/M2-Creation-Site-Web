@@ -1,6 +1,6 @@
 <?php
 
-class DB {
+class db {
 
     private $bdd = null;
     private static $instanceDB = null;
@@ -19,11 +19,11 @@ class DB {
 
     /*
      * Permet d'instancier une nouvelle connexion PDO
-     * ::self : permet d'accéder à l'ensemble de la classe courante DB
+     * ::self : permet d'accéder à l'ensemble de la classe courante view-db
      */
     public static function getInstanceBDD() {
         if (is_null(self::$instanceDB)) {
-            self::$instanceDB = new DB();
+            self::$instanceDB = new db();
         }
         return self::$instanceDB;
     }

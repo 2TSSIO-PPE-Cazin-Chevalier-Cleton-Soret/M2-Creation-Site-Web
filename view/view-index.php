@@ -4,7 +4,7 @@
             <h1>Bienvenue sur la plateforme d'inscription de la RAM</h1>
         </div>
         <div class="register__form">
-            <form action="view/inscription.php" method="post">
+            <form action="index.php" method="post">
                 <input type="text" name="pseudo" class="input-form" placeholder="Votre pseudo">
                 <input type="password" class="input-form" name="mdp" placeholder="Votre mot de passe">
                 <input type="text" class="input-form" name="nom" placeholder="Votre nom">

@@ -10,14 +10,15 @@ function __autoload($classname) {
     include_once($filename);
 }
 
-components::getHead("Accueil");
-
-session_start();
-if(isset($_SESSION['id'])) {
-    header('Location : tableau-de-bord.php');
-}
-else {
-    header('Location : connexion.php');
-}
+components::getHead("Inscription");
 
 ?>
+<body>
+<?php
+
+require 'view/view-menu.php';
+require 'view/view-inscription.php';
+
+?>
+</body>
+</html>

@@ -11,7 +11,7 @@
         <div class="register__title">
             <h1>Inscription échouée</h1>
         </div>
-        <a class="link" href="../index.php">Retour à la page d'accueil</a>
+        <a class="link" href="../inscription.php">Retour à la page d'accueil</a>
         </div>
     </div>
 </div>

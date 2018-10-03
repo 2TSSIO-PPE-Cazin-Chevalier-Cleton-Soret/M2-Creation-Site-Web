@@ -7,10 +7,10 @@ body {
 }
 
 .register {
-  width: 70vw;
+  width: 90vw;
   text-align: center;
   margin: 0 auto;
-  margin-top: 15vh;
+  margin-top: 5vh;
   padding-bottom: 40px;
   background: white;
   -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -27,10 +27,19 @@ body {
   display: block;
   width: 80%;
   margin: 0 auto;
-  padding: 10px;
+  padding: 15px;
   margin-bottom: 10px;
   border: 1px solid rgba(52, 73, 94, 0.6);
-  border-radius: 3px;
+  -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.16), 0 1px 0px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.16), 0 1px 0px rgba(0, 0, 0, 0.23);
+}
+
+.register__form .input-form:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
 }
 
 .register__form .button-submit-form {
@@ -44,6 +53,45 @@ body {
   margin-top: 40px;
   border: 1px solid #229955;
   cursor: pointer;
+}
+
+.menu {
+  position: relative;
+}
+
+.menu .title {
+  position: absolute;
+  padding: 25px;
+  list-style: none;
+}
+
+.menu .title a {
+  color: grey;
+  text-decoration: none;
+  padding: 25px;
+  border-bottom: 2px solid #ecf0f1;
+}
+
+.menu ul {
+  text-align: right;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: white;
+  padding: 25px 0px 25px 0px;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.menu ul li {
+  display: inline-block;
+}
+
+.menu ul li a {
+  color: grey;
+  text-decoration: none;
+  padding: 25px;
+  border-bottom: 2px solid #ecf0f1;
 }
 
 a.link {
