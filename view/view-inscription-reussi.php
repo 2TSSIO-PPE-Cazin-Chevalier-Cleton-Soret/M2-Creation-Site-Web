@@ -7,8 +7,8 @@
 </head>
 <body>
 <div class="main">
-    <div class="register">
-        <div class="register__title">
+    <div class="section">
+        <div class="section__title">
             <h1>Inscription réussi</h1>
         </div>
         <a class="link" href="../tableau-de-bord.php">Aller sur le tableau de bord</a>

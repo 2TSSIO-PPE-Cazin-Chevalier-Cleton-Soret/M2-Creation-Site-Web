@@ -1,9 +1,9 @@
 <div class="main">
-    <div class="register">
-        <div class="register__title">
+    <div class="section">
+        <div class="section__title">
             <h1>Connexion à la plateforme de la RAM</h1>
         </div>
-        <div class="register__form">
+        <div class="section__form">
             <form action="connexion.php" method="post">
                 <input type="text" name="pseudo" class="input-form" placeholder="Votre pseudo">
                 <input type="password" class="input-form" name="mdp" placeholder="Votre mot de passe">

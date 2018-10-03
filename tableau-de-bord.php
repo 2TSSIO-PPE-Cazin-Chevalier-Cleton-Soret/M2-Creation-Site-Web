@@ -6,7 +6,7 @@ if(!isset($_SESSION['id'])) {
 }
 
 function __autoload($classname) {
-    $filename = "./". $classname .".php";
+    $filename = "model/class-". $classname .".php";
     include_once($filename);
 }
 
