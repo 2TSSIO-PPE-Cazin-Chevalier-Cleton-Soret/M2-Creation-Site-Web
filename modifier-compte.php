@@ -10,14 +10,14 @@ function __autoload($classname) {
     include_once($filename);
 }
 
-components::getHead("Tableau de bord");
+components::getHead("Modifier votre compte");
 ?>
 <body>
 <?php
 
 require 'view/view-menu.php';
-require 'view/view-tableau-de-bord.php';
-require 'view/view-footer-fixed.php';
+require 'view/view-modifier-compte.php';
+require 'view/view-footer.php';
 
 ?>
 </body>

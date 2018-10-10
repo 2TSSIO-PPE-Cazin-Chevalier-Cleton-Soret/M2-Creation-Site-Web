@@ -1,5 +1,7 @@
 <?php
 
+require_once 'class-db.php';
+
 class auth {
 
     public function logout() {
@@ -12,6 +14,11 @@ class auth {
         else {
             header('Location: connexion.php');
         }
+    }
+
+    public static function updateAccountQuery($var) {
+        $req = db::getInstanceBDD()->getBDD()->prepare('UPDATE membres SET '.$var.'=:'.$var.' WHERE id = '.$_SESSION['id'].'');
+        $req->bindValue(":'.$var.'", $var, PDO::PARAM_STR);
     }
 
 }

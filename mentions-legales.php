@@ -10,14 +10,14 @@ function __autoload($classname) {
     include_once($filename);
 }
 
-components::getHead("Tableau de bord");
+components::getHead("Mentions légales");
 ?>
 <body>
 <?php
 
 require 'view/view-menu.php';
-require 'view/view-tableau-de-bord.php';
-require 'view/view-footer-fixed.php';
+require 'view/view-mentions-legales.php';
+require 'view/view-footer.php';
 
 ?>
 </body>

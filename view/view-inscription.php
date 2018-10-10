@@ -9,22 +9,26 @@
                 <input type="password" class="input-form" name="mdp" placeholder="Votre mot de passe">
                 <input type="text" class="input-form" name="nom" placeholder="Votre nom">
                 <input type="text" class="input-form" name="prenom" placeholder="Votre prénom">
+                <input type="number" class="input-form" name="cp" placeholder="Votre code postal">
+                <input type="text" class="input-form" name="ville" placeholder="Votre ville">
+                <input type="text" class="input-form" name="pays" placeholder="Votre pays">
                 <input type="mail" class="input-form" name="email" placeholder="Votre adresse email">
                 <input type="number" class="input-form" name="nbrEnfant" placeholder="Nombre d'enfants à charge">
-
                 <label for="parent">Je suis un parent</label>
                 <input type="radio" id="parent" name="type" value="parent"><br>
-
                 <label for="assistante">Je suis une assistante maternelle</label>
                 <input type="radio" id="assistante" name="type" value="assistante">
-
                 <input type="submit" class="button-submit-form" value="Valider l'inscription">
+
                 <?php
                 if(isset($_POST)) {
                     if (isset($_POST['pseudo'])
                         && isset($_POST['mdp'])
                         && isset($_POST['nom'])
                         && isset($_POST['prenom'])
+                        && isset($_POST['cp'])
+                        && isset($_POST['ville'])
+                        && isset($_POST['pays'])
                         && isset($_POST['email'])
                         && isset($_POST['nbrEnfant'])
                         && isset($_POST['type'])) {
@@ -38,22 +42,33 @@
                             $mdp = $_POST['mdp'];
                             $nom = $_POST['nom'];
                             $prenom = $_POST['prenom'];
+                            $cp = $_POST['cp'];
+                            $ville = $_POST['ville'];
+                            $pays = $_POST['pays'];
                             $email = $_POST['email'];
                             $nbrEnfant = $_POST['nbrEnfant'];
                             $type = $_POST['type'];
-                            $req = $bdd->prepare('INSERT INTO membres(pseudo, mdp, nom, prenom, email, nbrEnfant, type) VALUES(:pseudo, :mdp, :nom, :prenom, :email, :nbrEnfant, :type)');$req->execute(array(
+                            $req = $bdd->prepare('INSERT INTO membres(pseudo, mdp, nom, prenom, cp, ville, pays, email, nbrEnfant, type) VALUES(:pseudo, :mdp, :nom, :prenom, :cp, :ville, :pays, :email, :nbrEnfant, :type)');$req->execute(array(
                                 'pseudo' => $pseudo,
                                 'mdp' => password_hash($mdp, PASSWORD_DEFAULT),
                                 'nom' => $nom,
                                 'prenom' => $prenom,
+                                'cp' => $cp,
+                                'ville' => $ville,
+                                'pays' => $pays,
                                 'email' => $email,
                                 'nbrEnfant' => $nbrEnfant,
                                 'type' => $type
                             ));
-                            header('Location: tableau-de-bord.php');
+
+                            $req = $bdd->prepare('SELECT id FROM membres WHERE pseudo = :pseudo');
+                            $req->execute(array('pseudo' => $pseudo));
+                            $resultat = $req->fetch();
                             session_start();
+                            $_SESSION['id'] = $resultat['id'];
                             $_SESSION['nom'] = $nom;
                             $_SESSION['prenom'] = $prenom;
+                            header('Location: tableau-de-bord.php');
                         }
                     }
                 }
