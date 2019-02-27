@@ -2,29 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3243a0f8-a3f1-427d-94b7-e27a6a879cab" name="Default" comment="- Commit iniatial&#10;- Mission 2">
-      <change afterPath="$PROJECT_DIR$/app/App.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Autoloader.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Form.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/inputs.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/connexion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inscription.php" beforeDir="false" afterPath="$PROJECT_DIR$/inscription.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mentions-legales.php" beforeDir="false" afterPath="$PROJECT_DIR$/mentions-legales.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/class-auth.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Auth.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/class-components.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/class-db.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DB.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modifier-compte.php" beforeDir="false" afterPath="$PROJECT_DIR$/modifier-compte.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tableau-de-bord.php" beforeDir="false" afterPath="$PROJECT_DIR$/tableau-de-bord.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/view-connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/view-connexion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/view-footer-fixed.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/view-footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/view-footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/view-head.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/view-head.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/view-index.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/view-index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/view-inscription.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/view-inscription.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/view-menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/view-menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/view-modifier-compte.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/view-modifier-compte.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/view-tableau-de-bord.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/view-tableau-de-bord.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -83,17 +62,17 @@
       <file leaf-file-name="view-inscription.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/view-inscription.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="52">
-              <caret line="2" column="47" lean-forward="true" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="47" />
+            <state relative-caret-position="-468">
+              <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view-index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="view-index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/view/view-index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="9" column="109" selection-start-line="9" selection-start-column="109" selection-end-line="9" selection-end-column="109" />
+            <state relative-caret-position="468">
+              <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -119,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="view-footer.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="view-footer.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/view-footer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="68" selection-start-column="68" selection-end-column="68" />
+            <state relative-caret-position="52">
+              <caret line="2" column="9" lean-forward="true" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -196,13 +175,13 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/connexion.php" />
         <option value="$PROJECT_DIR$/view/view-menu.php" />
-        <option value="$PROJECT_DIR$/view/view-index.php" />
         <option value="$PROJECT_DIR$/view/view-tableau-de-bord.php" />
         <option value="$PROJECT_DIR$/view/view-modifier-compte.php" />
-        <option value="$PROJECT_DIR$/view/view-inscription.php" />
         <option value="$PROJECT_DIR$/view/view-connexion.php" />
         <option value="$PROJECT_DIR$/view/view-head.php" />
         <option value="$PROJECT_DIR$/view/view-footer.php" />
+        <option value="$PROJECT_DIR$/view/view-inscription.php" />
+        <option value="$PROJECT_DIR$/view/view-index.php" />
       </list>
     </option>
   </component>
@@ -339,7 +318,7 @@
       <workItem from="1542202837948" duration="685000" />
       <workItem from="1542205906923" duration="1332000" />
       <workItem from="1542807123112" duration="27000" />
-      <workItem from="1551269899688" duration="10497000" />
+      <workItem from="1551269899688" duration="10836000" />
     </task>
     <task id="LOCAL-00001" summary="- Commit iniatial&#10;- Mission 2">
       <created>1537965195499</created>
@@ -363,7 +342,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57673000" />
+    <option name="totallyTimeSpent" value="58012000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -659,13 +638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/view-index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="9" column="109" selection-start-line="9" selection-start-column="109" selection-end-line="9" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/view-tableau-de-bord.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="26">
@@ -677,13 +649,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="130">
           <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/view-inscription.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="47" lean-forward="true" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -706,8 +671,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/view/view-footer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="68" selection-start-column="68" selection-end-column="68" />
+        <state relative-caret-position="52">
+          <caret line="2" column="9" lean-forward="true" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/view-inscription.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-468">
+          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/view-index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
         </state>
       </provider>
     </entry>
