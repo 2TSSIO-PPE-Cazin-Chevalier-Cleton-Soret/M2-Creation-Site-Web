@@ -4,11 +4,11 @@
     <title></title>
 </head>
 <body>
-<div class="main">
-    <div class="section">
-        <div class="section__title">
-            <h1>Mentions légales</h1>
-            <div class="section__form t-l">
+<div class="container">
+    <div class="card mt-4 mx-auto px-5 py-2">
+        <div class="card-body">
+            <h1 class="card-title text-center border-bottom pb-3">Mentions légales</h1>
+            <div class="card-text">
                 <h2>Définitions</h2>
                 <p><b>Client&nbsp;:</b>&nbsp;tout professionnel ou personne physique capable au sens des articles 1123 et suivants du Code civil, ou personne morale, qui visite le Site objet des présentes conditions générales.<br>
                     <b>Prestations et Services&nbsp;:</b> <a href="http://localhost">http://localhost</a> met à disposition des Clients&nbsp;:</p>
