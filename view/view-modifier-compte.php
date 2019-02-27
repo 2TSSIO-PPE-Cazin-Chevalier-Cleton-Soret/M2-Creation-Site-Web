@@ -1,24 +1,30 @@
-<div class="main">
-    <div class="section">
-        <div class="section__title">
-            <h1>Modifier les informations de votre compte</h1>
-            <div class="section__form">
+<?php $form = new Form(); ?>
+<div class="container">
+    <div class="card mt-5 text-center">
+        <div class="card-body">
+            <h1 class="card-title mb-4">Modifier les informations de votre compte</h1>
+            <div class="card-text px-4">
                 <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
-                    <input type="text" name="pseudo" class="input-form" value="<?= $_SESSION['pseudo']; ?>">
-                    <input type="password" class="input-form" name="mdp" placeholder="Votre mot de passe">
-                    <input type="text" class="input-form" name="nom" placeholder="Votre nom">
-                    <input type="text" class="input-form" name="prenom" placeholder="Votre prénom">
-                    <input type="number" class="input-form" name="cp" placeholder="Votre code postal">
-                    <input type="text" class="input-form" name="ville" placeholder="Votre ville">
-                    <input type="text" class="input-form" name="pays" placeholder="Votre pays">
-                    <input type="mail" class="input-form" name="email" placeholder="Votre adresse email" value="<?php  ?>">
-                    <input type="number" class="input-form" name="nbrEnfant" placeholder="Nombre d'enfants à charge">
-                    <label for="parent">Je suis un parent</label>
-                    <input type="radio" id="parent" name="type" value="parent"><br>
-                    <label for="assistante">Je suis une assistante maternelle</label>
-                    <input type="radio" id="assistante" name="type" value="assistante">
-                    <input type="submit" name="submit" class="button-submit-form" value="Valider les modifications">
-
+                    <?= $form->createInput("pseudo"); ?>
+                    <?= $form->createInput("mdp", "password", "Votre mot de passe"); ?>
+                    <?= $form->createInput("nom") ?>
+                    <?= $form->createInput("prenom") ?>
+                    <?= $form->createInput("cp") ?>
+                    <?= $form->createInput("ville") ?>
+                    <?= $form->createInput("pays") ?>
+                    <?= $form->createInput("email") ?>
+                    <?= $form->createInput("nbrEnfant", "number") ?>
+                    <div class="text-center">
+                        <div class="form-control border-0 text-center d-inline">
+                            <input type="radio" id="parent" name="type" value="parent">
+                            <label for="parent">Je suis un parent</label>
+                        </div>
+                        <div class="form-control border-0 text-center d-inline">
+                            <input type="radio" id="assistante" name="type" value="assistante">
+                            <label for="assistante">Je suis une assistante maternelle</label>
+                        </div>
+                    </div>
+                    <input type="submit" name="submit" class="btn btn-success btn-block" value="Valider les modifications">
                     <?php
                     if(isset($_POST['submit'])) {
                         $bdd = db::getInstanceBDD()->getBDD(); //Créer une nouvelle instance PDO, view-db = nom de la classe, getInstanceBDD() = nom de la méthode, getBDD = récupére la méthode

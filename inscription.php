@@ -5,12 +5,10 @@ if(isset($_SESSION['id'])) {
     header('Location: tableau-de-bord.php');
 }
 
-function __autoload($classname) {
-    $filename = "model/class-". $classname .".php";
-    include_once($filename);
-}
+require 'app/Autoloader.php';
+Autoloader::register();
 
-components::getHead("Inscription");
+App::getHead("Inscription");
 
 ?>
 <body>
@@ -18,6 +16,7 @@ components::getHead("Inscription");
 
 require 'view/view-menu.php';
 require 'view/view-inscription.php';
+require 'view/view-footer.php';
 
 ?>
 </body>

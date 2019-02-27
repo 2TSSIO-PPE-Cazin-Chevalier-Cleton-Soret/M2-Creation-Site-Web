@@ -1,6 +1,6 @@
 <?php
 
-class db {
+class DB {
 
     private $bdd = null;
     private static $instanceDB = null;

@@ -1,16 +1,15 @@
 <?php
 
 session_start();
-if(!isset($_SESSION['id'])) {
-    header('Location: connexion.php');
-}
-
 function __autoload($classname) {
-    $filename = "model/class-". $classname .".php";
+    $filename = "app/class-". $classname .".php";
     include_once($filename);
 }
 
-components::getHead("Mentions légales");
+require 'app/Autoloader.php';
+Autoloader::register();
+
+App::getHead("Mentions légales");
 ?>
 <body>
 <?php

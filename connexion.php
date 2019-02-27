@@ -5,18 +5,17 @@ if(isset($_SESSION['id'])) {
     header('Location: tableau-de-bord.php');
 }
 
-function __autoload($classname) {
-    $filename = "model/class-". $classname .".php";
-    include_once($filename);
-}
+require 'app/Autoloader.php';
+Autoloader::register();
 
-components::getHead("Connexion");
+App::getHead("Connexion");
 ?>
 <body>
 <?php
 
 require 'view/view-menu.php';
 require 'view/view-connexion.php';
+require 'view/view-footer.php';
 
 ?>
 </body>

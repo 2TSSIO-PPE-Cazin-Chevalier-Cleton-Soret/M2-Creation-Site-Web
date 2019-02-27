@@ -5,12 +5,10 @@ if(!isset($_SESSION['id'])) {
     header('Location: connexion.php');
 }
 
-function __autoload($classname) {
-    $filename = "model/class-". $classname .".php";
-    include_once($filename);
-}
+require 'app/Autoloader.php';
+Autoloader::register();
 
-components::getHead("Modifier votre compte");
+App::getHead("Modifier votre compte");
 ?>
 <body>
 <?php

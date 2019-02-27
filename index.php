@@ -2,15 +2,13 @@
 
 session_start();
 
-function __autoload($classname) {
-    $filename = "model/class-". $classname .".php";
-    include_once($filename);
-}
+require 'app/Autoloader.php';
+Autoloader::register();
 
-components::getHead("Accueil");
+App::getHead("Accueil");
 
 require 'view/view-menu.php';
 require 'view/view-index.php';
-require 'view/view-footer-fixed.php';
+require 'view/view-footer.php';
 
 ?>

@@ -1,23 +1,22 @@
 <?php
 
 session_start();
+
 if(!isset($_SESSION['id'])) {
     header('Location: connexion.php');
 }
 
-function __autoload($classname) {
-    $filename = "model/class-". $classname .".php";
-    include_once($filename);
-}
+require 'app/Autoloader.php';
+Autoloader::register();
 
-components::getHead("Tableau de bord");
+App::getHead("Tableau de bord");
 ?>
 <body>
 <?php
 
 require 'view/view-menu.php';
 require 'view/view-tableau-de-bord.php';
-require 'view/view-footer-fixed.php';
+require 'view/view-footer.php';
 
 ?>
 </body>

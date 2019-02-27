@@ -1,8 +1,6 @@
 <?php
 
-require_once 'class-db.php';
-
-class auth {
+class Auth extends DB {
 
     public function logout() {
         session_start();
