@@ -5,14 +5,14 @@
             <h1 class="card-title mb-4">Modifier les informations de votre compte</h1>
             <div class="card-text px-4">
                 <form action="<?= $_SERVER['PHP_SELF']; ?>" method="post">
-                    <?= $form->createInput("pseudo"); ?>
-                    <?= $form->createInput("mdp", "password", "Votre mot de passe"); ?>
-                    <?= $form->createInput("nom") ?>
-                    <?= $form->createInput("prenom") ?>
-                    <?= $form->createInput("cp") ?>
-                    <?= $form->createInput("ville") ?>
-                    <?= $form->createInput("pays") ?>
-                    <?= $form->createInput("email") ?>
+                    <?= $form->createInput("pseudo", "text") ?>
+                    <?= $form->createInput("mdp", "password", "Votre mot de passe") ?>
+                    <?= $form->createInput("nom", "text") ?>
+                    <?= $form->createInput("prenom", "text") ?>
+                    <?= $form->createInput("cp", "number") ?>
+                    <?= $form->createInput("ville", "text") ?>
+                    <?= $form->createInput("pays", "text") ?>
+                    <?= $form->createInput("email", "mail") ?>
                     <?= $form->createInput("nbrEnfant", "number") ?>
                     <div class="text-center">
                         <div class="form-control border-0 text-center d-inline">
@@ -24,6 +24,15 @@
                             <label for="assistante">Je suis une assistante maternelle</label>
                         </div>
                     </div>
+                    <?php
+                    $req = $bdd->query('SELECT type FROM membres WHERE id='.$_SESSION['id'].'');
+                    while($donnees = $req->fetch()) {
+                        $type = $donnees['type'];
+                    }
+                    if($type == "parent") {
+                        echo $form->createInput("choix_nounou", "number");
+                    }
+                    ?>
                     <input type="submit" name="submit" class="btn btn-success btn-block" value="Valider les modifications">
                     <?php
                     if(isset($_POST['submit'])) {
@@ -37,6 +46,7 @@
                         $pays = $_POST['pays'];
                         $email = $_POST['email'];
                         $nbrEnfant = $_POST['nbrEnfant'];
+                        $choix_nounou = $_POST['choix_nounou'];
                         if(!empty($pseudo)) {
                             $req = $bdd->prepare('UPDATE membres SET pseudo=:pseudo WHERE id = '.$_SESSION['id'].'');
                             $req->bindValue(":pseudo", $pseudo, PDO::PARAM_STR);
@@ -74,6 +84,12 @@
                             $req = $bdd->prepare('UPDATE membres SET nbrEnfant=:nbrEnfant WHERE id = '.$_SESSION['id'].'');
                             $req->bindValue(":nbrEnfant", $nbrEnfant, PDO::PARAM_STR);
                         };
+                        if(!empty($choixnounou)) {
+                            if ($type == "parent") {
+                                $req = $bdd->prepare('UPDATE membres SET choix_nounou=:choix_nounou WHERE id = ' . $_SESSION['id'] . '');
+                                $req->bindValue(":choix_nounou", $choixnounou, PDO::PARAM_STR);
+                            }
+                        }
                         $req->execute();
                         echo '<div class="alert alert-success">Les données ont bien été modifiés!</div>';
                     }

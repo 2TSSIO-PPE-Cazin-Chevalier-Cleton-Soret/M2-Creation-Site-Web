@@ -7,7 +7,7 @@
                 <form action="connexion.php" method="post">
                     <?= $form->createInput("pseudo", "text", "Votre pseudo") ?>
                     <?= $form->createInput("mdp", "password", "Votre mot de passe") ?>
-                    <input type="submit" class="btn btn-primary btn-block" value="Se connecter">
+                    <input type="submit" class="btn btn-primary btn-block mb-2" value="Se connecter">
                     <?php
                     if(isset($_POST)) {
                         if(isset($_POST['pseudo']) && isset($_POST['mdp'])) {
@@ -29,7 +29,6 @@
                             else {
 
                                 if ($isPasswordCorrect) {
-                                    session_start();
                                     $_SESSION['id'] = $resultat['id'];
                                     $_SESSION['pseudo'] = $pseudo;
                                     header('Location: tableau-de-bord.php');

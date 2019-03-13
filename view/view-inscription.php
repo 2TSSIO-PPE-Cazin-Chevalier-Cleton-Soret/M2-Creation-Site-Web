@@ -1,11 +1,11 @@
 <?php $form = new Form(); ?>
 <div class="container">
     <div class="row">
-        <div class="card mt-5 px-5 py-3 text-center d-flex mx-auto align-self-center">
+        <div class="card mt-5 px-5 py-3 d-flex mx-auto align-self-center">
             <div class="card-body">
                 <h1 class="card-title">Bienvenue sur la plateforme d'inscription de la RAM</h1>
                 <div class="card-text mx-auto">
-                    <form action="inscription.php" method="post">
+                    <form action="inscription.php" method="post" id="form">
                         <?= $form->createInput("pseudo", "text", "Votre pseudo") ?>
                         <?= $form->createInput("mdp", "password", "Votre mot de passe") ?>
                         <?= $form->createInput("nom", "text", "Votre nom") ?>
@@ -14,17 +14,16 @@
                         <?= $form->createInput("ville", "text", "Votre ville") ?>
                         <?= $form->createInput("pays", "text", "Votre pays") ?>
                         <?= $form->createInput("email", "mail", "Votre adresse email") ?>
-                        <?= $form->createInput("nbrEnfant", "number", "Votre nombre d'enfant(s) à charge") ?>
-                        <div class="text-center">
-                            <div class="form-control border-0 text-center d-inline">
-                                <input type="radio" id="parent" name="type" value="parent">
-                                <label for="parent">Je suis un parent</label>
-                            </div>
-                            <div class="form-control border-0 text-center d-inline">
-                                <input type="radio" id="assistante" name="type" value="assistante">
-                                <label for="assistante">Je suis une assistante maternelle</label>
-                            </div>
+                        <div class="form-check">
+                            <input type="radio" id="parent" name="type" value="parent">
+                            <label for="parent">Je suis un parent</label>
                         </div>
+                        <div class="form-check">
+                            <input type="radio" id="assistante" name="type" value="assistante">
+                            <label for="assistante">Je suis une assistante maternelle</label>
+                        </div>
+
+                        <?= $form->createInput("nbrEnfant", "number", "Votre nombre d'enfant(s) à charge") ?>
                         <input type="submit" class="btn btn-primary btn-block" value="Valider l'inscription">
 
                         <?php
@@ -37,9 +36,7 @@
                                 && isset($_POST['ville'])
                                 && isset($_POST['pays'])
                                 && isset($_POST['email'])
-                                && isset($_POST['nbrEnfant'])
                                 && isset($_POST['type'])) {
-
                                 $bdd = DB::getInstanceBDD()->getBDD(); //Créer une nouvelle instance PDO, view-db = nom de la classe, getInstanceBDD() = nom de la méthode, getBDD = récupére la méthode
                                 $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
                                 $req = $bdd->prepare('SELECT COUNT(*) FROM membres WHERE pseudo = ?');
@@ -54,7 +51,7 @@
                                     $ville = $_POST['ville'];
                                     $pays = $_POST['pays'];
                                     $email = $_POST['email'];
-                                    $nbrEnfant = $_POST['nbrEnfant'];
+                                    $nbrEnfant = isset($_POST['nbrEnfant']) ? $_POST['nbrEnfant'] : null;
                                     $type = $_POST['type'];
                                     $req = $bdd->prepare('INSERT INTO membres(pseudo, mdp, nom, prenom, cp, ville, pays, email, nbrEnfant, type) VALUES(:pseudo, :mdp, :nom, :prenom, :cp, :ville, :pays, :email, :nbrEnfant, :type)');$req->execute(array(
                                         'pseudo' => $pseudo,
@@ -72,9 +69,6 @@
                                 }
                             }
                         }
-                        else {
-                            echo "coucou";
-                        }
 
                         ?>
                     </form>
@@ -83,3 +77,16 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $('input[name="nbrEnfant"]').css('display','none');
+        $('input[id="assistante"]').click(function() {
+            $('input[name="nbrEnfant"]').css('display','none');
+            console.log('assistante');
+        });
+        $('input[id="parent"]').click(function() {
+            $('input[name="nbrEnfant"]').css('display','block').fadeIn('slow');
+            console.log('parent');
+        });
+    });
+</script>
