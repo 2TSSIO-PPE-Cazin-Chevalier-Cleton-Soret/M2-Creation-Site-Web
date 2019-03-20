@@ -945,6 +945,7 @@
       <Position>1</Position>
       <DataType>int(255)|0s</DataType>
       <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="241" parent="238" name="nom">
@@ -965,100 +966,106 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="244" parent="238" name="idNounou">
+    <column id="244" parent="238" name="idParent">
       <Position>5</Position>
       <DataType>int(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="245" parent="238" name="id">
+    <column id="245" parent="238" name="idNounou">
+      <Position>6</Position>
+      <DataType>int(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="246" parent="238" name="id">
       <ColNames>idNounou</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="246" parent="238" name="PRIMARY">
+    <key id="247" parent="238" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>idEnfant
 idNounou</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="247" parent="238" name="enfants_ibfk_1">
+    <foreign-key id="248" parent="238" name="enfants_ibfk_1">
       <ColNames>idNounou</ColNames>
       <RefSchemaName>ram</RefSchemaName>
       <RefTableName>membres</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="248" parent="239" name="id">
+    <column id="249" parent="239" name="id">
       <Position>1</Position>
       <DataType>int(255)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="249" parent="239" name="pseudo">
+    <column id="250" parent="239" name="pseudo">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="250" parent="239" name="mdp">
+    <column id="251" parent="239" name="mdp">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="251" parent="239" name="nom">
+    <column id="252" parent="239" name="nom">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="252" parent="239" name="prenom">
+    <column id="253" parent="239" name="prenom">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="253" parent="239" name="cp">
+    <column id="254" parent="239" name="cp">
       <Position>6</Position>
       <DataType>int(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="254" parent="239" name="ville">
+    <column id="255" parent="239" name="ville">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="255" parent="239" name="pays">
+    <column id="256" parent="239" name="pays">
       <Position>8</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="239" name="email">
+    <column id="257" parent="239" name="email">
       <Position>9</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="239" name="nbrEnfant">
+    <column id="258" parent="239" name="nbrEnfant">
       <Position>10</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="239" name="type">
+    <column id="259" parent="239" name="type">
       <Position>11</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="259" parent="239" name="choix_nounou">
+    <column id="260" parent="239" name="choix_nounou">
       <Position>12</Position>
       <DataType>int(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="260" parent="239" name="PRIMARY">
+    <key id="261" parent="239" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
