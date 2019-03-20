@@ -13,7 +13,10 @@ App::getHead("Choix de la nounou");
 ?>
 <body>
 <?php require 'view/view-menu.php'; ?>
-<?php $form = new Form(); ?>
+<?php
+$form = new Form();
+?>
+
 <div class="container">
     <div class="card mt-5 text-center">
         <div class="card-body">
@@ -27,9 +30,13 @@ App::getHead("Choix de la nounou");
                     $req = $bdd->query('SELECT * FROM membres WHERE id = '.$_SESSION['id'].'');
                     while($donnees = $req->fetch()) {
                         $nbrEnfant = $donnees['nbrEnfant'];
+                        if($donnees['choix_nounou'] == 0) {
+                            echo '<div class="alert alert-danger">Vous devez choisir une nounou</div>';
+                            die();
+                        }
                     }
                     for($i = 0;$i < $nbrEnfant; $i++): ?>
-                        <h1><?= $i ?></h1>
+                        <h1>Enfant <?= $i+1 ?></h1>
                             <div class="form-group">
                                 <input type="text" name="nom[]" placeholder="Nom de l'enfant" class="form-control">
                             </div>
@@ -59,18 +66,18 @@ App::getHead("Choix de la nounou");
                                     $ages[$key] = $value;
                                 }
                             }
-                            $bdd = DB::getInstanceBDD()->getBDD();
                             $choix = $bdd->query('SELECT * FROM membres WHERE id = ' . $_SESSION['id']);
                             while($donnees = $choix->fetch()) {
                                 $idNounou = $donnees['choix_nounou'];
                                 $nbrEnfant = $donnees['nbrEnfant'];
                             }
                             for($i=0; $i<$nbrEnfant; $i++) {
-                                ${'req' . $i} = $bdd->prepare('INSERT INTO enfants(nom, prenom, age, idNounou) VALUES (?, ?, ?, ?)');
+                                ${'req' . $i} = $bdd->prepare('INSERT INTO enfants(nom, prenom, age, idParent, idNounou) VALUES (?, ?, ?, ?, ?)');
                                 ${'req' . $i}->bindParam(1, $noms[$i]);
                                 ${'req' . $i}->bindParam(2, $prenoms[$i]);
                                 ${'req' . $i}->bindParam(3, $ages[$i]);
-                                ${'req' . $i}->bindParam(4, $idNounou);
+                                ${'req' . $i}->bindParam(4, $_SESSION['id']);
+                                ${'req' . $i}->bindParam(5, $idNounou);
                                 ${'req' . $i}->execute();
                             }
                             echo 'Les enfants <span class="text-italic">' . implode(", ", $noms) . '</span> ont bien été ajoutés';

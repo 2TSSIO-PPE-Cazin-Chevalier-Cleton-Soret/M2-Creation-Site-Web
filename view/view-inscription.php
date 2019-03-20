@@ -1,4 +1,7 @@
-<?php $form = new Form(); ?>
+<?php
+$form = new Form();
+$bdd = DB::getInstanceBDD()->getBDD();
+?>
 <div class="container">
     <div class="row">
         <div class="card mt-5 px-5 py-3 d-flex mx-auto align-self-center">
@@ -24,8 +27,16 @@
                         </div>
 
                         <?= $form->createInput("nbrEnfant", "number", "Votre nombre d'enfant(s) à charge") ?>
+                        <div class="form-group">
+                            <select name="choix_nounou" id="nom" class="form-control" style="display: none;">
+                                <?php
+                                $req = $bdd->query('SELECT * FROM membres WHERE type="assistante"');
+                                while($donnees = $req->fetch()): ?>
+                                    <option value="<?= $donnees['id']; ?>"><?= $donnees['nom']; ?></option>
+                                <?php endwhile; ?>
+                            </select>
+                        </div>
                         <input type="submit" class="btn btn-primary btn-block" value="Valider l'inscription">
-
                         <?php
                         if(isset($_POST)) {
                             if (isset($_POST['pseudo'])
@@ -37,7 +48,6 @@
                                 && isset($_POST['pays'])
                                 && isset($_POST['email'])
                                 && isset($_POST['type'])) {
-                                $bdd = DB::getInstanceBDD()->getBDD(); //Créer une nouvelle instance PDO, view-db = nom de la classe, getInstanceBDD() = nom de la méthode, getBDD = récupére la méthode
                                 $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
                                 $req = $bdd->prepare('SELECT COUNT(*) FROM membres WHERE pseudo = ?');
                                 $req->execute(array(strtolower($_POST['pseudo'])));
@@ -53,7 +63,9 @@
                                     $email = $_POST['email'];
                                     $nbrEnfant = isset($_POST['nbrEnfant']) ? $_POST['nbrEnfant'] : null;
                                     $type = $_POST['type'];
-                                    $req = $bdd->prepare('INSERT INTO membres(pseudo, mdp, nom, prenom, cp, ville, pays, email, nbrEnfant, type) VALUES(:pseudo, :mdp, :nom, :prenom, :cp, :ville, :pays, :email, :nbrEnfant, :type)');$req->execute(array(
+                                    $choix_nounou = isset($_POST['choix_nounou']) ? $_POST['choix_nounou'] : null;
+                                    $req = $bdd->prepare('INSERT INTO membres(pseudo, mdp, nom, prenom, cp, ville, pays, email, nbrEnfant, type, choix_nounou) VALUES(:pseudo, :mdp, :nom, :prenom, :cp, :ville, :pays, :email, :nbrEnfant, :type, :choix_nounou)');
+                                    $req->execute(array(
                                         'pseudo' => $pseudo,
                                         'mdp' => password_hash($mdp, PASSWORD_DEFAULT),
                                         'nom' => $nom,
@@ -63,8 +75,12 @@
                                         'pays' => $pays,
                                         'email' => $email,
                                         'nbrEnfant' => $nbrEnfant,
-                                        'type' => $type
+                                        'type' => $type,
+                                        'choix_nounou' => $choix_nounou,
                                     ));
+                                    /**
+                                     * Todo: Régler le problème de header already sent lors de l'inscription
+                                     */
                                     header('Location: connexion.php');
                                 }
                             }
@@ -82,10 +98,12 @@
         $('input[name="nbrEnfant"]').css('display','none');
         $('input[id="assistante"]').click(function() {
             $('input[name="nbrEnfant"]').css('display','none');
+            $('select[name="choix_nounou"]').css('display','none');
             console.log('assistante');
         });
         $('input[id="parent"]').click(function() {
             $('input[name="nbrEnfant"]').css('display','block').fadeIn('slow');
+            $('select[name="choix_nounou"]').css('display','block').fadeIn('slow');
             console.log('parent');
         });
     });

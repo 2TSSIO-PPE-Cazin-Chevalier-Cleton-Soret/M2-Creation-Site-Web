@@ -31,6 +31,12 @@
                                 if ($isPasswordCorrect) {
                                     $_SESSION['id'] = $resultat['id'];
                                     $_SESSION['pseudo'] = $pseudo;
+
+                                    $req = $bdd->prepare('SELECT choix_nounou FROM membres WHERE pseudo = :pseudo');
+                                    $req->execute(array('pseudo' => $pseudo));
+                                    $resultat = $req->fetch();
+                                    $_SESSION['choix_nounou'] = $resultat['choix_nounou'];
+
                                     header('Location: tableau-de-bord.php');
                                 }
 
@@ -45,7 +51,6 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 </body>
 

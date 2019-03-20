@@ -14,9 +14,10 @@
                     <?= $form->createInput("pays", "text") ?>
                     <?= $form->createInput("email", "mail") ?>
                     <?php
-                    $req = $bdd->query('SELECT type FROM membres WHERE id='.$_SESSION['id'].'');
+                    $req = $bdd->query('SELECT * FROM membres WHERE id='.$_SESSION['id'].'');
                     while($donnees = $req->fetch()) {
                         $type = $donnees['type'];
+                        $idParent = $donnees['id'];
                     }
                     if($type == "parent"): ?>
                     <div class="form-group">
@@ -33,7 +34,7 @@
                     <input type="submit" name="submit" class="btn btn-success btn-block" value="Valider les modifications">
                     <?php
                     if(isset($_POST['submit'])) {
-                        $bdd = db::getInstanceBDD()->getBDD(); //Créer une nouvelle instance PDO, view-db = nom de la classe, getInstanceBDD() = nom de la méthode, getBDD = récupére la méthode
+                        $bdd = db::getInstanceBDD()->getBDD();
                         $pseudo = htmlspecialchars($_POST['pseudo']);
                         $mdp = $_POST['mdp'];
                         $nom = $_POST['nom'];
@@ -79,8 +80,15 @@
                         if(!empty($choix_nounou)) {
                             if ($type == "parent") {
                                 $req = $bdd->prepare('UPDATE membres SET choix_nounou=:choix_nounou WHERE id = ' . $_SESSION['id'] . '');
+                                $req2 = $bdd->prepare('UPDATE enfants
+                                                                SET idNounou=:idNounou 
+                                                                WHERE idNounou = ' . $_SESSION['choix_nounou'] . ' AND idParent = ' . $idParent);
                                 $req->bindValue(":choix_nounou", $choix_nounou);
+                                $req2->bindValue(":idNounou", $choix_nounou);
                                 $_SESSION['choix_nounou'] = $choix_nounou;
+                                $req2->execute();
+                                var_dump($_SESSION['choix_nounou']);
+                                var_dump('id de session : '.$_SESSION['id']);
                             }
                         }
                         $req->execute();

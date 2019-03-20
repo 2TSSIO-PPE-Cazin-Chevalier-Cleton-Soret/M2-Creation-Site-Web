@@ -3,9 +3,10 @@
         <div class="card-body">
             <?php
             $bdd = DB::getInstanceBDD()->getBDD();
-            $req = $bdd->query('SELECT type FROM membres WHERE id='.$_SESSION['id'].'');
+            $req = $bdd->query('SELECT * FROM membres WHERE id='.$_SESSION['id'].'');
             while($donnees = $req->fetch()) {
                 $type = $donnees['type'];
+                $nbrEnfant = $donnees['nbrEnfant'];
             }
             ?>
             <h1 class="card-title">Bienvenue sur votre tableau de bord <span style="color: #2980b9;"><?= $_SESSION['pseudo']; ?></span></h1>
@@ -18,7 +19,26 @@
                     </div>
                 </div>
                 </div>
-                <?php if($type == "parent"): ?>
+                <?php
+                $req = $bdd->query('
+                                    SELECT count(*)
+                                    FROM membres AS m
+                                    INNER JOIN enfants AS e ON m.id = e.idParent
+                                    WHERE id='.$_SESSION['id'].'');
+                while($count = $req->fetch()) {
+                    $nbrEnfantCount = $count[0];
+                }
+                if($type == "parent" && $nbrEnfant === $nbrEnfantCount): ?>
+                    <div class="col-lg-4 p-0">
+                        <div class="card m-4 pl-4 pr-4 text-center">
+                            <div class="card-body">
+                                <h5 class="card-title">Modifier les informations de vos enfants</h5>
+                                <a class="btn btn-success" href="gerer-enfant.php">Modifier les informations</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
+                <?php if($type == "parent" && $nbrEnfant !== $nbrEnfantCount): ?>
                 <div class="col-lg-4 p-0">
                         <div class="card m-4 pl-4 pr-4 text-center">
                             <div class="card-body">
@@ -26,7 +46,7 @@
                                 <a class="btn btn-primary" href="gerer-enfant.php">Modifier les informations relatives à votre enfant</a>
                             </div>
                         </div>
-                    </div>
+                </div>
                 <?php endif; ?>
                 <div class="col-lg-4 p-0">
                 <div class="card m-4 pl-4 pr-4 text-center">
@@ -46,13 +66,10 @@
                                     <select name="enfant" class="form-control">
                                         <?php
                                         $bdd = DB::getInstanceBDD()->getBDD();
-                                        $req = $bdd->query('SELECT * FROM enfants WHERE choix_nounou = '.$_SESSION['id'].'');
+                                        $req = $bdd->query('SELECT * FROM enfants WHERE idNounou = '.$_SESSION['id'].'');
                                         while($donnees = $req->fetch()) {
-                                            echo '<option name="choix_nounou" value="'.$donnees['nom'].'">'.$donnees['nom'].'</option>';
+                                            echo '<option name="choix_nounou" value="'.$donnees['prenom'].'">'.$donnees['prenom'].'</option>';
                                         }
-                                        ?>
-                                        <?php
-                                        var_dump($_SESSION['pseudo']);
                                         ?>
                                     </select>
                                     <button class="btn btn-primary mt-2">Accéder aux informations de l'enfant</button>
