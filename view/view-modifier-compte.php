@@ -1,6 +1,6 @@
 <?php $form = new Form(); ?>
 <div class="container">
-    <div class="card mt-5 text-center">
+    <div class="card mt-5 text-center position-static">
         <div class="card-body">
             <h1 class="card-title mb-4">Modifier les informations de votre compte</h1>
             <div class="card-text px-4">
@@ -13,26 +13,23 @@
                     <?= $form->createInput("ville", "text") ?>
                     <?= $form->createInput("pays", "text") ?>
                     <?= $form->createInput("email", "mail") ?>
-                    <?= $form->createInput("nbrEnfant", "number") ?>
-                    <div class="text-center">
-                        <div class="form-control border-0 text-center d-inline">
-                            <input type="radio" id="parent" name="type" value="parent">
-                            <label for="parent">Je suis un parent</label>
-                        </div>
-                        <div class="form-control border-0 text-center d-inline">
-                            <input type="radio" id="assistante" name="type" value="assistante">
-                            <label for="assistante">Je suis une assistante maternelle</label>
-                        </div>
-                    </div>
                     <?php
                     $req = $bdd->query('SELECT type FROM membres WHERE id='.$_SESSION['id'].'');
                     while($donnees = $req->fetch()) {
                         $type = $donnees['type'];
                     }
-                    if($type == "parent") {
-                        echo $form->createInput("choix_nounou", "number");
-                    }
-                    ?>
+                    if($type == "parent"): ?>
+                    <div class="form-group">
+                        <select name="choix_nounou" id="nom" class="form-control">
+                            <?php
+                            $bdd = DB::getInstanceBDD()->getBDD();
+                            $req = $bdd->query('SELECT * FROM membres WHERE type="assistante"');
+                            while($donnees = $req->fetch()): ?>
+                                <option value="<?= $donnees['id']; ?>" <?= ((empty($_SESSION['choix_nounou'])) || (($_SESSION['choix_nounou'] === $donnees['id'])) ? 'selected' : null);  ?>><?= $donnees['nom']; ?></option>
+                            <?php endwhile; ?>
+                        </select>
+                    </div>
+                    <?php endif; ?>
                     <input type="submit" name="submit" class="btn btn-success btn-block" value="Valider les modifications">
                     <?php
                     if(isset($_POST['submit'])) {
@@ -45,7 +42,6 @@
                         $ville = $_POST['ville'];
                         $pays = $_POST['pays'];
                         $email = $_POST['email'];
-                        $nbrEnfant = $_POST['nbrEnfant'];
                         $choix_nounou = $_POST['choix_nounou'];
                         if(!empty($pseudo)) {
                             $req = $bdd->prepare('UPDATE membres SET pseudo=:pseudo WHERE id = '.$_SESSION['id'].'');
@@ -80,18 +76,29 @@
                             $req = $bdd->prepare('UPDATE membres SET email=:email WHERE id = '.$_SESSION['id'].'');
                             $req->bindValue(":email", $email, PDO::PARAM_STR);
                         };
-                        if(!empty($nbrEnfant)) {
-                            $req = $bdd->prepare('UPDATE membres SET nbrEnfant=:nbrEnfant WHERE id = '.$_SESSION['id'].'');
-                            $req->bindValue(":nbrEnfant", $nbrEnfant, PDO::PARAM_STR);
-                        };
-                        if(!empty($choixnounou)) {
+                        if(!empty($choix_nounou)) {
                             if ($type == "parent") {
                                 $req = $bdd->prepare('UPDATE membres SET choix_nounou=:choix_nounou WHERE id = ' . $_SESSION['id'] . '');
-                                $req->bindValue(":choix_nounou", $choixnounou, PDO::PARAM_STR);
+                                $req->bindValue(":choix_nounou", $choix_nounou);
+                                $_SESSION['choix_nounou'] = $choix_nounou;
                             }
                         }
                         $req->execute();
-                        echo '<div class="alert alert-success">Les données ont bien été modifiés!</div>';
+                        echo '
+  <div class="toast" style="position: absolute; bottom: 70px; right: 10px;opacity: 1;" data-autohide="false">
+    <div class="toast-header">
+      <svg class="bd-placeholder-img rounded mr-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+        <rect width="100%" height="100%" fill="#28a745"></rect>
+      </svg>
+      <strong class="mr-auto">Notification</strong>
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="toast-body success">
+      La modification à bien été enregistré
+    </div>
+  </div>';
                     }
                     ?>
                 </form>

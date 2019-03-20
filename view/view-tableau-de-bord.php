@@ -9,25 +9,46 @@
             }
             ?>
             <h1 class="card-title">Bienvenue sur votre tableau de bord <span style="color: #2980b9;"><?= $_SESSION['pseudo']; ?></span></h1>
-            <div class="row">
-                <div class="card mx-auto m-4 pl-4 pr-4 text-center">
+            <div class="row mx-auto">
+                <div class="col-lg-4 p-0">
+                <div class="card m-4 pl-4 pr-4 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Accéder à votre profil</h5>
+                        <a class="btn btn-primary" href="mon-compte.php">Accéder à votre profil</a>
+                    </div>
+                </div>
+                </div>
+                <?php if($type == "parent"): ?>
+                <div class="col-lg-4 p-0">
+                        <div class="card m-4 pl-4 pr-4 text-center">
+                            <div class="card-body">
+                                <h5 class="card-title">Gérer vos enfants</h5>
+                                <a class="btn btn-primary" href="gerer-enfant.php">Modifier les informations relatives à votre enfant</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
+                <div class="col-lg-4 p-0">
+                <div class="card m-4 pl-4 pr-4 text-center">
                     <div class="card-body">
                         <h5 class="card-title">Modifier les informations de votre compte</h5>
                         <a class="btn btn-primary" href="modifier-compte.php">Accéder à vos informations</a>
                     </div>
                 </div>
+                </div>
                 <?php if($type == "assistante"): ?>
+                <div class="col-lg-4 p-0">
                     <div class="card mx-auto m-4 pl-4 pr-4 text-center">
                         <div class="card-body">
                             <h5 class="card-title">Voir les enfants gérés</h5>
                             <form action="choix_nounou.php">
                                 <div class="form-group">
-                                    <select name="nom" id="nom" class="form-control">
+                                    <select name="enfant" class="form-control">
                                         <?php
                                         $bdd = DB::getInstanceBDD()->getBDD();
                                         $req = $bdd->query('SELECT * FROM enfants WHERE choix_nounou = '.$_SESSION['id'].'');
                                         while($donnees = $req->fetch()) {
-                                            echo '<option value="'.$donnees['nom'].'">'.$donnees['nom'].'</option>';
+                                            echo '<option name="choix_nounou" value="'.$donnees['nom'].'">'.$donnees['nom'].'</option>';
                                         }
                                         ?>
                                         <?php
@@ -39,27 +60,7 @@
                             </form>
                         </div>
                     </div>
-                <?php endif; ?>
-                <?php if($type == "parent"): ?>
-                    <div class="card mx-auto m-4 pl-4 pr-4 text-center">
-                        <div class="card-body">
-                            <h5 class="card-title">Choisir votre nounou</h5>
-                            <form action="choix_nounou.php">
-                                <div class="form-group">
-                                    <select name="nom" id="nom" class="form-control">
-                                    <?php
-                                    $bdd = DB::getInstanceBDD()->getBDD();
-                                    $req = $bdd->query('SELECT * FROM membres WHERE type="assistante"');
-                                    while($donnees = $req->fetch()) {
-                                        echo '<option value="'.$donnees['nom'].'">'.$donnees['nom'].'</option>';
-                                    }
-                                    ?>
-                                    </select>
-                                    <button class="btn btn-primary mt-2">Accéder aux informations de l'enfant</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                </div>
                 <?php endif; ?>
             </div>
         </div>
