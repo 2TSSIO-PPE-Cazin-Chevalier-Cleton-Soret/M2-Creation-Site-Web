@@ -1,4 +1,7 @@
-<?php $form = new Form(); ?>
+<?php
+$form = new Form();
+$members = new Membres();
+?>
 <div class="container">
     <div class="card mt-5 text-center position-static">
         <div class="card-body">
@@ -14,27 +17,19 @@
                     <?= $form->createInput("pays", "text") ?>
                     <?= $form->createInput("email", "mail") ?>
                     <?php
-                    $req = $bdd->query('SELECT * FROM membres WHERE id='.$_SESSION['id'].'');
-                    while($donnees = $req->fetch()) {
-                        $type = $donnees['type'];
-                        $idParent = $donnees['id'];
-                    }
+                    $id = $members->getID();
+                    $type = $members->getType();
                     if($type == "parent"): ?>
                     <div class="form-group">
                         <select name="choix_nounou" id="nom" class="form-control">
-                            <?php
-                            $bdd = DB::getInstanceBDD()->getBDD();
-                            $req = $bdd->query('SELECT * FROM membres WHERE type="assistante"');
-                            while($donnees = $req->fetch()): ?>
-                                <option value="<?= $donnees['id']; ?>" <?= ((empty($_SESSION['choix_nounou'])) || (($_SESSION['choix_nounou'] === $donnees['id'])) ? 'selected' : null);  ?>><?= $donnees['nom']; ?></option>
-                            <?php endwhile; ?>
+                            <option value="<?= $members->getID(); ?>"><?= $members->getType(); ?></option>
                         </select>
                     </div>
                     <?php endif; ?>
                     <input type="submit" name="submit" class="btn btn-success btn-block" value="Valider les modifications">
                     <?php
                     if(isset($_POST['submit'])) {
-                        $bdd = db::getInstanceBDD()->getBDD();
+                        $bdd = db::getInstance();
                         $pseudo = htmlspecialchars($_POST['pseudo']);
                         $mdp = $_POST['mdp'];
                         $nom = $_POST['nom'];
@@ -43,7 +38,7 @@
                         $ville = $_POST['ville'];
                         $pays = $_POST['pays'];
                         $email = $_POST['email'];
-                        $choix_nounou = $_POST['choix_nounou'];
+                        $choix_nounou = isset($_POST['choix_nounou']) ? $_POST['choix_nounou'] : null;
                         if(!empty($pseudo)) {
                             $req = $bdd->prepare('UPDATE membres SET pseudo=:pseudo WHERE id = '.$_SESSION['id'].'');
                             $req->bindValue(":pseudo", $pseudo, PDO::PARAM_STR);

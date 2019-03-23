@@ -1,38 +1,57 @@
 <?php
 
-class DB {
+class DB
+{
+    private $PDOInstance = null;
 
-    private $bdd = null;
-    private static $instanceDB = null;
+    private static $instance = null;
 
-    /**
-     * Constructeur de la base de données
-     */
-    private function __construct() {
-        try {
-            $this->bdd = new PDO('mysql:host=localhost;dbname=RAM;charset=utf8', 'root', 'root', array(PDO::ATTR_PERSISTENT => true));
-        }
-        catch (Exception $e) {
-            echo ("Erreur : " . $e->getMessage());
-        }
+    const DB_HOST = 'localhost';
+
+    const DB_DATABASE = 'ram';
+
+    const DB_USER = 'root';
+
+    const DB_PASS = 'root';
+
+    private function __construct()
+    {
+        $this->PDOInstance = new PDO('mysql:dbname='.self::DB_DATABASE.';host='.self::DB_HOST,self::DB_USER,self::DB_PASS);
     }
 
-    /*
-     * Permet d'instancier une nouvelle connexion PDO
-     * ::self : permet d'accéder à l'ensemble de la classe courante view-db
-     */
-    public static function getInstanceBDD() {
-        if (is_null(self::$instanceDB)) {
-            self::$instanceDB = new db();
+    public static function getInstance()
+    {
+        if(is_null(self::$instance))
+        {
+            self::$instance = new DB();
         }
-        return self::$instanceDB;
+        return self::$instance;
     }
 
-    /**
-     * @return PDO
-     */
-    public function getBDD() {
-        return $this->bdd;
+    public function query($query)
+    {
+        return $this->PDOInstance->query($query);
+    }
+
+    public function prepare($query)
+    {
+        return $this->PDOInstance->prepare($query);
+    }
+
+    public static function updateWithParams($params, $sessionOrNot = false) {
+        $bdd = self::getInstance();
+        if($sessionOrNot = false) {
+            if (!empty($params)) {
+                $req = $bdd->prepare('UPDATE membres SET '.$params.'=:'.$params.' WHERE id = ' . $_SESSION['id'] . '');
+                $req->bindValue(":'.$params.'", $params, PDO::PARAM_STR);
+            }
+        } else {
+            if (!empty($params)) {
+                $req = $bdd->prepare('UPDATE membres SET {$params}=:{$params} WHERE id = ' . $_SESSION['id'] . '');
+                $req->bindValue(":pseudo", $params, PDO::PARAM_STR);
+                $_SESSION['' . $params . ''] = $params;
+            }
+        }
     }
 
 }

@@ -19,7 +19,7 @@ class App extends DB {
     }
 
     public static function getValue($value) {
-        $bdd = DB::getInstanceBDD()->getBDD();
+        $bdd = DB::getInstance();
         $req = $bdd->query('SELECT * FROM membres WHERE id = '.$_SESSION['id'].'');
         $req_select = $req->fetch();
         return $req_select[''.$value.''];

@@ -7,7 +7,7 @@
         <ul class="navbar-nav">
             <?php
             if(isset($_SESSION['id'])) {
-                $bdd = DB::getInstanceBDD()->getBDD();
+                $bdd = DB::getInstance();
                 $req = $bdd->query('SELECT type FROM membres WHERE id=' . $_SESSION['id'] . '');
                 while ($donnees = $req->fetch()) {
                     $type = $donnees['type'];

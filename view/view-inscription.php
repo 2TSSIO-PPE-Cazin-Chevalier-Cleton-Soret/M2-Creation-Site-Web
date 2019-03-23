@@ -1,6 +1,5 @@
 <?php
 $form = new Form();
-$bdd = DB::getInstanceBDD()->getBDD();
 ?>
 <div class="container">
     <div class="row">
@@ -25,11 +24,17 @@ $bdd = DB::getInstanceBDD()->getBDD();
                             <input type="radio" id="assistante" name="type" value="assistante">
                             <label for="assistante">Je suis une assistante maternelle</label>
                         </div>
-
                         <?= $form->createInput("nbrEnfant", "number", "Votre nombre d'enfant(s) à charge") ?>
                         <div class="form-group">
                             <select name="choix_nounou" id="nom" class="form-control" style="display: none;">
+
                                 <?php
+                                /**
+                                 * TODO: Problème ici, si il est retiré, tout marche bien
+                                 * C'est causé par les <?= ?>
+                                 * Restructurer le code pour éviter de l'écrire directement dans le code en brut
+                                 */
+                                $bdd = DB::getInstance();
                                 $req = $bdd->query('SELECT * FROM membres WHERE type="assistante"');
                                 while($donnees = $req->fetch()): ?>
                                     <option value="<?= $donnees['id']; ?>"><?= $donnees['nom']; ?></option>
@@ -47,7 +52,8 @@ $bdd = DB::getInstanceBDD()->getBDD();
                                 && isset($_POST['ville'])
                                 && isset($_POST['pays'])
                                 && isset($_POST['email'])
-                                && isset($_POST['type'])) {
+                                && isset($_POST['type'])
+                                && isset($_POST['choix_nounou'])) {
                                 $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
                                 $req = $bdd->prepare('SELECT COUNT(*) FROM membres WHERE pseudo = ?');
                                 $req->execute(array(strtolower($_POST['pseudo'])));
@@ -82,10 +88,10 @@ $bdd = DB::getInstanceBDD()->getBDD();
                                      * Todo: Régler le problème de header already sent lors de l'inscription
                                      */
                                     header('Location: connexion.php');
+                                    exit;
                                 }
                             }
                         }
-
                         ?>
                     </form>
                 </div>

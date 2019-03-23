@@ -11,7 +11,7 @@
                     <?php
                     if(isset($_POST)) {
                         if(isset($_POST['pseudo']) && isset($_POST['mdp'])) {
-                            $bdd = db::getInstanceBDD()->getBDD();
+                            $bdd = DB::getInstance();
                             $pseudo = $_POST['pseudo'];
 
                             //  Récupération de l'utilisateur et de son pass hashé

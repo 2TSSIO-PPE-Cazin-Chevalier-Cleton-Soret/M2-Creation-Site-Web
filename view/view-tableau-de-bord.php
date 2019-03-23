@@ -2,7 +2,7 @@
     <div class="card text-center">
         <div class="card-body">
             <?php
-            $bdd = DB::getInstanceBDD()->getBDD();
+            $bdd = DB::getInstance();
             $req = $bdd->query('SELECT * FROM membres WHERE id='.$_SESSION['id'].'');
             while($donnees = $req->fetch()) {
                 $type = $donnees['type'];
@@ -65,7 +65,7 @@
                                 <div class="form-group">
                                     <select name="enfant" class="form-control">
                                         <?php
-                                        $bdd = DB::getInstanceBDD()->getBDD();
+                                        $bdd = DB::getInstance();
                                         $req = $bdd->query('SELECT * FROM enfants WHERE idNounou = '.$_SESSION['id'].'');
                                         while($donnees = $req->fetch()) {
                                             echo '<option name="choix_nounou" value="'.$donnees['prenom'].'">'.$donnees['prenom'].'</option>';
