@@ -104,7 +104,6 @@ endif;
                                             FROM calendrier AS c
                                             INNER JOIN enfants AS e on c.idEnfant = e.idEnfant
                                             WHERE idParent = '.$_SESSION['id'].' AND date = CURDATE()');
-                    var_dump($req->rowCount());
                     ?>
                     <?php if($req->rowCount() != 0): ?>
                     <table class="table table-bordered">
@@ -166,7 +165,18 @@ endif;
                         ?>
                         </tbody>
                     </table>
+
+
                     <?php endif; ?>
+                    <?php
+
+                        $weeks = $bdd->query('
+                                            SELECT *
+                                            FROM calendrier AS c
+                                            INNER JOIN enfants AS e on c.idEnfant = e.idEnfant
+                                            WHERE idParent = '.$_SESSION['id'].' AND date = CURDATE()');
+                    ?>
+
                     <?php if($req->rowCount() == 0): ?>
                     <div class="alert alert-primary">L'assistante maternelle n'a pas encore fait son compte rendu hebdomadaire</div>
                     <?php endif; ?>

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm">
     <a class="navbar-brand" href="index.php">RAM</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -34,4 +34,4 @@
         </ul>
     </div>
 </nav>
-<div style="position: absolute; bottom: 10%; left:20px;"><h6>Debug</h6><?= var_dump($_SESSION) ?></div>
+<!--<div style="position: absolute; bottom: 10%; left:20px;"><h6>Debug</h6><?= var_dump($_SESSION) ?></div>-->

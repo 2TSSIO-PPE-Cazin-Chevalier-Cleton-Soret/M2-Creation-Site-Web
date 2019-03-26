@@ -5,22 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3243a0f8-a3f1-427d-94b7-e27a6a879cab" name="Default" comment="- Commit">
-      <change afterPath="$PROJECT_DIR$/calendrier.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/view-calendrier.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a5afad27-7cc2-4a45-a502-c19b08ccedef.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a5afad27-7cc2-4a45-a502-c19b08ccedef.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/DB.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/DB.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Form.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Form.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Membres.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Membres.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gerer-enfant.php" beforeDir="false" afterPath="$PROJECT_DIR$/gerer-enfant.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inscription.php" beforeDir="false" afterPath="$PROJECT_DIR$/inscription.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/view-gerer-enfant.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/view-gerer-enfant.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/view-head.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/view-head.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/view-inscription.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/view-inscription.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/calendrier.php" beforeDir="false" afterPath="$PROJECT_DIR$/calendrier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/view-calendrier.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/view-calendrier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/view-footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/view-footer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/view/view-menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/view-menu.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/view-tableau-de-bord.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/view-tableau-de-bord.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,15 +49,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/view-inscription.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="88" column="94" lean-forward="true" selection-start-line="88" selection-start-column="94" selection-end-line="88" selection-end-column="94" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inscription.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="393">
@@ -108,17 +87,44 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/view-gerer-enfant.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
+            <state relative-caret-position="116">
+              <caret line="65" column="45" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/view-calendrier.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="98" column="39" lean-forward="true" selection-start-line="98" selection-start-column="39" selection-end-line="98" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/calendrier.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="393">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/view-menu.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="81" selection-start-column="81" selection-end-column="81" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/view/view-calendrier.php">
+        <entry file="file://$PROJECT_DIR$/view/view-footer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="9" column="39" lean-forward="true" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+            <state>
+              <caret column="68" selection-start-column="68" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -128,24 +134,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-145">
               <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gerer-enfant.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Form.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="22" column="57" lean-forward="true" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -207,18 +195,15 @@
         <option value="$PROJECT_DIR$/public/css/main.css" />
         <option value="$PROJECT_DIR$/docs/structure_bdd.sql" />
         <option value="$PROJECT_DIR$/view/view-head.php" />
-        <option value="$PROJECT_DIR$/view/view-footer.php" />
         <option value="$PROJECT_DIR$/app/Entity/Membres.php" />
         <option value="$PROJECT_DIR$/view/view-choix-nounou.php" />
         <option value="$PROJECT_DIR$/choix-nounou.php" />
         <option value="$PROJECT_DIR$/view/view-index.php" />
         <option value="$PROJECT_DIR$/view/view-modifier-compte.php" />
         <option value="$PROJECT_DIR$/gerer-enfant.php" />
-        <option value="$PROJECT_DIR$/calendrier.php" />
         <option value="$PROJECT_DIR$/app/DB.php" />
         <option value="$PROJECT_DIR$/app/App.php" />
         <option value="$PROJECT_DIR$/view/view-connexion.php" />
-        <option value="$PROJECT_DIR$/view/view-menu.php" />
         <option value="$PROJECT_DIR$/view/view-inscription.php" />
         <option value="$PROJECT_DIR$/inscription.php" />
         <option value="$PROJECT_DIR$/app/Form.php" />
@@ -226,6 +211,9 @@
         <option value="$PROJECT_DIR$/view/view-tableau-de-bord.php" />
         <option value="$PROJECT_DIR$/app/Membres.php" />
         <option value="$PROJECT_DIR$/view/view-calendrier.php" />
+        <option value="$PROJECT_DIR$/calendrier.php" />
+        <option value="$PROJECT_DIR$/view/view-menu.php" />
+        <option value="$PROJECT_DIR$/view/view-footer.php" />
       </list>
     </option>
   </component>
@@ -375,7 +363,7 @@
       <workItem from="1553253556265" duration="1655000" />
       <workItem from="1553268450630" duration="4786000" />
       <workItem from="1553545064172" duration="924000" />
-      <workItem from="1553614729418" duration="15998000" />
+      <workItem from="1553614729418" duration="18592000" />
     </task>
     <task id="LOCAL-00001" summary="- Commit iniatial&#10;- Mission 2">
       <created>1537965195499</created>
@@ -406,7 +394,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114159000" />
+    <option name="totallyTimeSpent" value="116753000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -622,13 +610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/view-footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="3" column="94" selection-start-line="3" selection-start-column="94" selection-end-line="3" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
@@ -664,13 +645,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/calendrier.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/view/view-head.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
@@ -689,13 +663,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="435">
           <caret line="26" column="29" lean-forward="true" selection-start-line="26" selection-start-column="29" selection-end-line="26" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/view-menu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="30" column="30" lean-forward="true" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -748,6 +715,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/view/view-gerer-enfant.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="65" column="45" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/view/view-tableau-de-bord.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
@@ -755,17 +729,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/view-gerer-enfant.php">
+    <entry file="file://$PROJECT_DIR$/view/view-calendrier.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
+        <state relative-caret-position="132">
+          <caret line="98" column="39" lean-forward="true" selection-start-line="98" selection-start-column="39" selection-end-line="98" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/view-calendrier.php">
+    <entry file="file://$PROJECT_DIR$/calendrier.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="9" column="39" lean-forward="true" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+        <state relative-caret-position="393">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/view-menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="81" selection-start-column="81" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/view-footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="68" selection-start-column="68" selection-end-column="68" />
         </state>
       </provider>
     </entry>

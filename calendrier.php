@@ -15,7 +15,7 @@ App::getHead("Calendrier");
 <?php
 require 'view/view-menu.php';
 require 'view/view-calendrier.php';
-//require 'view/view-footer.php';
+require 'view/view-footer.php';
 ?>
 </body>
 </html>
