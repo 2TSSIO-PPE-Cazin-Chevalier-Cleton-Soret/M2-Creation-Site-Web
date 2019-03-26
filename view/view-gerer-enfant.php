@@ -7,9 +7,9 @@ $form = new Form();
         <div class="card-body">
             <h1 class="card-title mb-4">Modifier les informations relatives à vos enfants</h1>
             <div class="card-text px-4">
-                <div class="row">
-                    <div class="col-lg-12">
+                <div class="container">
                         <form action="gerer-enfant.php" method="post">
+                            <div class="row">
                             <?php
                             $bdd = DB::getInstance();
                             $req = $bdd->query('SELECT * FROM membres WHERE id = '.$_SESSION['id'].'');
@@ -20,7 +20,10 @@ $form = new Form();
                                     die();
                                 }
                             }
+                            $enfantsEnregistres = $bdd->query('SELECT COUNT(*) FROM enfants WHERE idParent = '.$_SESSION['id'].'')->fetch();
+                            $afficherOuNon = $enfantsEnregistres[0];
                             for($i = 0;$i < $nbrEnfant; $i++): ?>
+                            <div class="col-lg-6">
                                 <h1>Enfant <?= $i+1 ?></h1>
                                 <div class="form-group">
                                     <input type="text" name="nom[]" placeholder="Nom de l'enfant" class="form-control">
@@ -31,10 +34,12 @@ $form = new Form();
                                 <div class="form-group">
                                     <input type="text" name="age[]" placeholder="Âge de l'enfant" class="form-control">
                                 </div>
-                                <hr>
+                            </div>
                             <?php endfor; ?>
-                            <button type="submit" class="btn btn-primary btn-block">Valider les informations</button>
+                                <button type="submit" class="btn btn-primary btn-block mt-3">Valider les informations</button>
+                            </div>
                         </form>
+                </div>
                         <?php
 
                         if(isset($_POST["nom"]) && is_array($_POST["prenom"]) && is_array($_POST["age"])){
@@ -65,11 +70,10 @@ $form = new Form();
                                 ${'req' . $i}->bindParam(5, $idNounou);
                                 ${'req' . $i}->execute();
                             }
-                            echo 'Les enfants <span class="text-italic">' . implode(", ", $noms) . '</span> ont bien été ajoutés';
+                            echo '<div class="alert alert-success mt-3">Vos '.$nbrEnfant.' enfants ont bien été ajoutés</div>';
                         }
                         ?>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

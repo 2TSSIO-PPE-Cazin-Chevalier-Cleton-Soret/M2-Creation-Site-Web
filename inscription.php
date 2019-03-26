@@ -16,7 +16,7 @@ App::getHead("Inscription");
 
 require_once 'view/view-menu.php';
 require_once 'view/view-inscription.php';
-//require_once 'view/view-footer.php';
+require_once 'view/view-footer.php';
 
 ?>
 </body>

@@ -9,13 +9,13 @@ if(!isset($_SESSION['id'])) {
 require 'app/Autoloader.php';
 Autoloader::register();
 
-App::getHead("Gérer vos enfants");
+App::getHead("Calendrier");
 ?>
 <body>
 <?php
 require 'view/view-menu.php';
-require 'view/view-gerer-enfant.php';
-require 'view/view-footer.php';
+require 'view/view-calendrier.php';
+//require 'view/view-footer.php';
 ?>
 </body>
 </html>

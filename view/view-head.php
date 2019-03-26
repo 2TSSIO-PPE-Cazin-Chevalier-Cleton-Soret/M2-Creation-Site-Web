@@ -8,9 +8,7 @@
     <link rel="shortcut icon" href="public/images/favicon.ico" type="image/x-icon">
     <style>
         body {
-            background: url("public/images/background.png");
-            background-size: cover;
-            background-attachment: fixed;
+            background: #f8f9fa!important;
         }
     </style>
     <script

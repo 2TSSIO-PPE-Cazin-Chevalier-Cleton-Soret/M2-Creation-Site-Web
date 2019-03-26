@@ -16,10 +16,10 @@
             ?>
             <?php if(isset($_SESSION['id'])) {
                 if($type == "parent") {
-                    echo "<li class=\"nav-item\"><a class='nav-link' href=\"tableau-de-bord.php\"><i class=\"fas fa-user-circle text-primary\"></i>Tableau de bord <span class=\"badge badge-primary\">{$_SESSION['pseudo']}</span></a></li>";
+                    echo "<li class=\"nav-item\"><a class='nav-link' href=\"tableau-de-bord.php\"><i class=\"fas fa-user-circle text-primary\"></i> Tableau de bord <span class=\"badge badge-primary\">{$_SESSION['pseudo']}</span></a></li>";
                 }
                 if($type == "assistante") {
-                    echo "<li class=\"nav-item\"><a class='nav-link' href=\"tableau-de-bord.php\"><i class=\"fas fa-user-circle text-primary\"></i>Tableau de bord <span class=\"badge badge-success\">{$_SESSION['pseudo']}</span></a></li>";
+                    echo "<li class=\"nav-item\"><a class='nav-link' href=\"tableau-de-bord.php\"><i class=\"fas fa-user-circle text-primary\"></i> Tableau de bord <span class=\"badge badge-success\">{$_SESSION['pseudo']}</span></a></li>";
                 }
             } ?>
             <?php if(!isset($_SESSION['id'])) {
@@ -34,3 +34,4 @@
         </ul>
     </div>
 </nav>
+<div style="position: absolute; bottom: 10%; left:20px;"><h6>Debug</h6><?= var_dump($_SESSION) ?></div>

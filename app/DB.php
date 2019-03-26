@@ -17,6 +17,7 @@ class DB
     private function __construct()
     {
         $this->PDOInstance = new PDO('mysql:dbname='.self::DB_DATABASE.';host='.self::DB_HOST,self::DB_USER,self::DB_PASS);
+        $this->PDOInstance->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
     public static function getInstance()

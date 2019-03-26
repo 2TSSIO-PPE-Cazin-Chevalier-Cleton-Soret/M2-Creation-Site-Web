@@ -22,7 +22,7 @@ class Form {
                 }
                 return '<div class="form-group"><input type="'.$type.'" name="'.$name.'" class="form-control" placeholder="'. $placeholder .'"></div>';
             }
-            if($type == "mail") {
+            if($type == "email") {
                 if(is_null($placeholder)) {
                     return '<div class="form-group"><input type="'.$type.'" name="'.$name.'" class="form-control" value="'. App::getValue($name) .'"></div>';
                 }

@@ -15,7 +15,7 @@ $form = new Form();
                         <?= $form->createInput("cp", "number", "Votre code postal") ?>
                         <?= $form->createInput("ville", "text", "Votre ville") ?>
                         <?= $form->createInput("pays", "text", "Votre pays") ?>
-                        <?= $form->createInput("email", "mail", "Votre adresse email") ?>
+                        <?= $form->createInput("email", "email", "Votre adresse email") ?>
                         <div class="form-check">
                             <input type="radio" id="parent" name="type" value="parent">
                             <label for="parent">Je suis un parent</label>
@@ -34,11 +34,8 @@ $form = new Form();
                                  * C'est causé par les <?= ?>
                                  * Restructurer le code pour éviter de l'écrire directement dans le code en brut
                                  */
-                                $bdd = DB::getInstance();
-                                $req = $bdd->query('SELECT * FROM membres WHERE type="assistante"');
-                                while($donnees = $req->fetch()): ?>
-                                    <option value="<?= $donnees['id']; ?>"><?= $donnees['nom']; ?></option>
-                                <?php endwhile; ?>
+                                 Membres::getAssistantes();
+                                ?>
                             </select>
                         </div>
                         <input type="submit" class="btn btn-primary btn-block" value="Valider l'inscription">
@@ -54,10 +51,12 @@ $form = new Form();
                                 && isset($_POST['email'])
                                 && isset($_POST['type'])
                                 && isset($_POST['choix_nounou'])) {
-                                $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+                                $bdd = DB::getInstance();
                                 $req = $bdd->prepare('SELECT COUNT(*) FROM membres WHERE pseudo = ?');
                                 $req->execute(array(strtolower($_POST['pseudo'])));
-                                if ($req->fetchColumn() != 0) {}
+                                if ($req->fetchColumn() != 0) {
+                                    echo '<div class="alert alert-warning mt-3">Ce pseudo est déjà utilisé</div>';
+                                }
                                 else {
                                     $pseudo = $_POST['pseudo'];
                                     $mdp = $_POST['mdp'];
@@ -87,7 +86,7 @@ $form = new Form();
                                     /**
                                      * Todo: Régler le problème de header already sent lors de l'inscription
                                      */
-                                    header('Location: connexion.php');
+                                    echo("<script>location.href = 'connexion.php';</script>");
                                     exit;
                                 }
                             }
