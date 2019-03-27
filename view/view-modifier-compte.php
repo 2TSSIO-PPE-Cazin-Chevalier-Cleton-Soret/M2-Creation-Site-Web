@@ -15,14 +15,14 @@ $members = new Membres();
                     <?= $form->createInput("cp", "number") ?>
                     <?= $form->createInput("ville", "text") ?>
                     <?= $form->createInput("pays", "text") ?>
-                    <?= $form->createInput("email", "mail") ?>
+                    <?= $form->createInput("email", "email") ?>
                     <?php
                     $id = $members->getID();
                     $type = $members->getType();
                     if($type == "parent"): ?>
                     <div class="form-group">
                         <select name="choix_nounou" id="nom" class="form-control">
-                            <option value="<?= $members->getID(); ?>"><?= $members->getType(); ?></option>
+                            <?php Membres::getAssistantes(); ?>
                         </select>
                     </div>
                     <?php endif; ?>
@@ -77,13 +77,11 @@ $members = new Membres();
                                 $req = $bdd->prepare('UPDATE membres SET choix_nounou=:choix_nounou WHERE id = ' . $_SESSION['id'] . '');
                                 $req2 = $bdd->prepare('UPDATE enfants
                                                                 SET idNounou=:idNounou 
-                                                                WHERE idNounou = ' . $_SESSION['choix_nounou'] . ' AND idParent = ' . $idParent);
+                                                                WHERE idNounou = ' . $_SESSION['choix_nounou'] . ' AND idParent = ' . $_SESSION['id']);
                                 $req->bindValue(":choix_nounou", $choix_nounou);
                                 $req2->bindValue(":idNounou", $choix_nounou);
                                 $_SESSION['choix_nounou'] = $choix_nounou;
                                 $req2->execute();
-                                var_dump($_SESSION['choix_nounou']);
-                                var_dump('id de session : '.$_SESSION['id']);
                             }
                         }
                         $req->execute();

@@ -64,7 +64,7 @@
                                         }
                                         ?>
                                     </select>
-                                    <button class="btn btn-primary mt-2">Accéder aux informations de l'enfant</button>
+                                    <button class="btn btn-primary mt-2">Remplir le calendrier</button>
                                 </div>
                             </form>
                         </div>
