@@ -16,7 +16,7 @@ endif;
                         <?php
 
                         $bdd = DB::getInstance();
-                        $rempliesOuNon = $bdd->query('SELECT COUNT(*) FROM calendrier WHERE idEnfant = '.$_SESSION['idEnfant'].' AND date = CURDATE()')->fetch();
+                        $rempliesOuNon = $bdd->query('CALL calendrierRempliOuNon('.$_SESSION['idEnfant'].')')->fetch();
                         $afficherOuNon = $rempliesOuNon[0];
                         $afficher = true;
                         if($afficherOuNon == 1) {
@@ -66,19 +66,19 @@ endif;
                             $idEnfant = $_SESSION['idEnfant'];
 
                             $bdd = DB::getInstance();
-                            $req = $bdd->prepare('INSERT INTO calendrier(sante, temperature, pleurs, besoins, repas, aliments, dodo, humeur, activite, promenade, remarques, date, idEnfant) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURDATE(), ?)');
-                            $req->bindParam(1, $sante);
-                            $req->bindParam(2, $temp);
-                            $req->bindParam(3, $pleurs);
-                            $req->bindParam(4, $besoin);
-                            $req->bindParam(5, $repas);
-                            $req->bindParam(6, $aliment);
-                            $req->bindParam(7, $dodo);
-                            $req->bindParam(8, $humeur);
-                            $req->bindParam(9, $activite);
-                            $req->bindParam(10, $promenade);
-                            $req->bindParam(11, $remarques);
-                            $req->bindParam(12, $idEnfant);
+                            $req = $bdd->prepare('CALL ajouterCalendrier(:sante, :temperature, :pleurs, :besoins, :repas, :aliments, :dodo, :humeur, :activite, :promenade, :remarques, CURDATE(), :idEnfant)');
+                            $req->bindParam(":sante", $sante,PDO::PARAM_STR );
+                            $req->bindParam(":temperature", $temp,PDO::PARAM_INT);
+                            $req->bindParam(":pleurs", $pleurs,PDO::PARAM_STR);
+                            $req->bindParam(":besoins", $besoin,PDO::PARAM_STR);
+                            $req->bindParam(":repas", $repas,PDO::PARAM_STR);
+                            $req->bindParam(":aliments", $aliment,PDO::PARAM_STR);
+                            $req->bindParam(":dodo", $dodo,PDO::PARAM_STR);
+                            $req->bindParam(":humeur", $humeur,PDO::PARAM_STR);
+                            $req->bindParam(":activite", $activite,PDO::PARAM_STR);
+                            $req->bindParam(":promenade", $promenade,PDO::PARAM_STR);
+                            $req->bindParam(":remarques", $remarques,PDO::PARAM_STR);
+                            $req->bindParam(":idEnfant", $idEnfant,PDO::PARAM_INT);
                             $req->execute();
                             echo '<div class="alert alert-success mt-3">Données du jour enregistrées</div>';
                         }
@@ -99,11 +99,7 @@ endif;
                 <div class="card-text">
                     <?php
                     $bdd = DB::getInstance();
-                    $req = $bdd->query('
-                                            SELECT *
-                                            FROM calendrier AS c
-                                            INNER JOIN enfants AS e on c.idEnfant = e.idEnfant
-                                            WHERE idParent = '.$_SESSION['id'].' AND date = CURDATE()');
+                    $req = $bdd->query('CALL recupererEnfant('.$_SESSION['id'].')');
                     ?>
                     <?php if($req->rowCount() != 0): ?>
                     <table class="table table-bordered">
@@ -170,11 +166,7 @@ endif;
                     <?php endif; ?>
                     <?php
 
-                        $weeks = $bdd->query('
-                                            SELECT *
-                                            FROM calendrier AS c
-                                            INNER JOIN enfants AS e on c.idEnfant = e.idEnfant
-                                            WHERE idParent = '.$_SESSION['id'].' AND date = CURDATE()');
+                        $weeks = $bdd->query('CALL recupererEnfant('.$_SESSION['id'].')');
                     ?>
 
                     <?php if($req->rowCount() == 0): ?>

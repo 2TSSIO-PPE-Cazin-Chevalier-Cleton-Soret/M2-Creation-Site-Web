@@ -46,7 +46,7 @@ $members = new Membres();
                         };
                         if(!empty($mdp)) {
                             $req = $bdd->prepare('UPDATE membres SET mdp=:mdp WHERE id = '.$_SESSION['id'].'');
-                            $req->bindValue(":mdp", password_hash($mdp, PASSWORD_DEFAULT), PDO::PARAM_STR);
+                            $req->bindValue(":mdp", password_hash($mdp, PASSWORD_DEFAULT));
                         };
                         if(!empty($nom)) {
                             $req = $bdd->prepare('UPDATE membres SET nom=:nom WHERE id = '.$_SESSION['id'].'');

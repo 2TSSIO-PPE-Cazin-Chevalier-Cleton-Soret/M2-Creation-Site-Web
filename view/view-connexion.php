@@ -15,7 +15,7 @@
                             $pseudo = $_POST['pseudo'];
 
                             //  Récupération de l'utilisateur et de son pass hashé
-                            $req = $bdd->prepare('SELECT id, pseudo, mdp FROM membres WHERE pseudo = :pseudo');
+                            $req = $bdd->prepare('CALL recupererUtilisateur(:pseudo)');
                             $req->execute(array('pseudo' => $pseudo));
                             $resultat = $req->fetch();
 
@@ -32,7 +32,7 @@
                                     $_SESSION['id'] = $resultat['id'];
                                     $_SESSION['pseudo'] = $pseudo;
 
-                                    $req = $bdd->prepare('SELECT choix_nounou FROM membres WHERE pseudo = :pseudo');
+                                    $req = $bdd->prepare('CALL recupererUtilisateur(:pseudo)');
                                     $req->execute(array('pseudo' => $pseudo));
                                     $resultat = $req->fetch();
                                     $_SESSION['choix_nounou'] = $resultat['choix_nounou'];

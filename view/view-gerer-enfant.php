@@ -12,7 +12,7 @@ $form = new Form();
                             <div class="row">
                             <?php
                             $bdd = DB::getInstance();
-                            $req = $bdd->query('SELECT * FROM membres WHERE id = '.$_SESSION['id'].'');
+                            $req = $bdd->query('CALL recupererInformationsUtilisateur('.$_SESSION['id'].')');
                             while($donnees = $req->fetch()) {
                                 $nbrEnfant = $donnees['nbrEnfant'];
                                 if($donnees['choix_nounou'] == 0) {
@@ -20,7 +20,7 @@ $form = new Form();
                                     die();
                                 }
                             }
-                            $enfantsEnregistres = $bdd->query('SELECT COUNT(*) FROM enfants WHERE idParent = '.$_SESSION['id'].'')->fetch();
+                            $enfantsEnregistres = $bdd->query('CALL recupererNombreEnfantDeLUtilisateur('.$_SESSION['id'].')')->fetch();
                             $afficherOuNon = $enfantsEnregistres[0];
                             for($i = 0;$i < $nbrEnfant; $i++): ?>
                             <div class="col-lg-6">
@@ -56,18 +56,18 @@ $form = new Form();
                                     $ages[$key] = $value;
                                 }
                             }
-                            $choix = $bdd->query('SELECT * FROM membres WHERE id = ' . $_SESSION['id']);
+                            $choix = $bdd->query('CALL recupererInformationsUtilisateur('.$_SESSION['id'].')');
                             while($donnees = $choix->fetch()) {
                                 $idNounou = $donnees['choix_nounou'];
                                 $nbrEnfant = $donnees['nbrEnfant'];
                             }
                             for($i=0; $i<$nbrEnfant; $i++) {
-                                ${'req' . $i} = $bdd->prepare('INSERT INTO enfants(nom, prenom, age, idParent, idNounou) VALUES (?, ?, ?, ?, ?)');
-                                ${'req' . $i}->bindParam(1, $noms[$i]);
-                                ${'req' . $i}->bindParam(2, $prenoms[$i]);
-                                ${'req' . $i}->bindParam(3, $ages[$i]);
-                                ${'req' . $i}->bindParam(4, $_SESSION['id']);
-                                ${'req' . $i}->bindParam(5, $idNounou);
+                                ${'req' . $i} = $bdd->prepare('CALL ajouterEnfant(:nom, :prenom, :age, :idParent, :idNounou)');
+                                ${'req' . $i}->bindParam(":nom", $noms[$i]);
+                                ${'req' . $i}->bindParam(":prenom", $prenoms[$i]);
+                                ${'req' . $i}->bindParam(":age", $ages[$i]);
+                                ${'req' . $i}->bindParam(":idParent", $_SESSION['id']);
+                                ${'req' . $i}->bindParam(":idNounou", $idNounou);
                                 ${'req' . $i}->execute();
                             }
                             echo '<div class="alert alert-success mt-3">Vos '.$nbrEnfant.' enfants ont bien été ajoutés</div>';

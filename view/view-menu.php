@@ -34,4 +34,4 @@
         </ul>
     </div>
 </nav>
-<!--<div style="position: absolute; bottom: 10%; left:20px;"><h6>Debug</h6><?= var_dump($_SESSION) ?></div>-->
+<div style="position: absolute; bottom: 10%; left:20px;"><h6>Debug</h6><?= var_dump($_SESSION) ?></div>
