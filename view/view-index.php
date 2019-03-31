@@ -7,7 +7,7 @@
                     <?php
                     if(!isset($_SESSION['id'])) {
                         echo "
-                <p class=\"t-j\" id='text-presentation'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam malesuada malesuada nisl ut fringilla. Vivamus urna purus, mollis sed pellentesque vitae, porttitor id leo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean fermentum, est ac suscipit pellentesque, neque libero vestibulum neque, non sodales nibh velit sed nibh. Nulla mi enim, viverra a sodales suscipit, luctus in tellus. Fusce ornare tincidunt sem, vitae hendrerit nibh placerat et. Curabitur dui lacus, auctor ac quam eget, gravida pharetra magna. Suspendisse efficitur sagittis commodo. Ut lectus risus, imperdiet id sapien non, posuere viverra nisi.</p>
+                <p class=\"t-j\" id='text-presentation'>La plateforme <span class='font-weight-bold'>RAM</span> permet de mettre en relation parent et assistante pour qu'elles puissent plus aisément suivre le suivi quotidien de leurs enfants.<br>Inscrivez-vous dès maintenant, que vous soyez <span class='font-weight-bold'>parent</span> ou <span class='font-weight-bold'>assistante</span></p>
                 <a class='btn btn-primary' href='inscription.php'>Inscrivez-vous</a> ou <a class='btn btn-primary' href='connexion.php'>Connectez-vous</a>
                 ";
                     }

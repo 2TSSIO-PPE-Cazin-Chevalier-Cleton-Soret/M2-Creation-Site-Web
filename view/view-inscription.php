@@ -69,7 +69,7 @@ $form = new Form();
                                     $nbrEnfant = isset($_POST['nbrEnfant']) ? $_POST['nbrEnfant'] : null;
                                     $type = $_POST['type'];
                                     $choix_nounou = isset($_POST['choix_nounou']) ? $_POST['choix_nounou'] : null;
-                                    $req = $bdd->prepare('INSERT INTO membres(pseudo, mdp, nom, prenom, cp, ville, pays, email, nbrEnfant, type, choix_nounou) VALUES(:pseudo, :mdp, :nom, :prenom, :cp, :ville, :pays, :email, :nbrEnfant, :type, :choix_nounou)');
+                                    $req = $bdd->prepare('CALL inscriptionUtilisateur(:pseudo, :mdp, :nom, :prenom, :cp, :ville, :pays, :email, :nbrEnfant, :type, :choix_nounou)');
                                     $req->execute(array(
                                         'pseudo' => $pseudo,
                                         'mdp' => password_hash($mdp, PASSWORD_DEFAULT),
@@ -83,9 +83,6 @@ $form = new Form();
                                         'type' => $type,
                                         'choix_nounou' => $choix_nounou,
                                     ));
-                                    /**
-                                     * Todo: Régler le problème de header already sent lors de l'inscription
-                                     */
                                     echo("<script>location.href = 'connexion.php';</script>");
                                     exit;
                                 }
