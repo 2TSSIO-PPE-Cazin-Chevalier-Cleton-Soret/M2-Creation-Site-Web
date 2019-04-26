@@ -60,7 +60,7 @@
                                         $bdd = DB::getInstance();
                                         $req = $bdd->query('SELECT * FROM enfant WHERE idNounou = '.$_SESSION['id'].'');
                                         while($donnees = $req->fetch()) {
-                                            echo '<option name="enfant" value="'.strtolower($donnees['idEnfant']).'">'.$donnees['prenom'].'</option>';
+                                            echo '<option name="enfant" value="'.strtolower($donnees['enfId']).'">'.$donnees['enfPrenom'].'</option>';
                                         }
                                         ?>
                                     </select>
