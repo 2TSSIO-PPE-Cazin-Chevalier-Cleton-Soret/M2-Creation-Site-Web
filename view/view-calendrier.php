@@ -125,7 +125,7 @@ endif;
                         foreach($req as $donnees) {
                             $idEnfant = $donnees['id'];
                             $result[$idEnfant] = array(
-                                'prenom' => $donnees['enfPrenom'],
+                                'enfPrenom' => $donnees['enfPrenom'],
                                 'sante' => $donnees['sante'],
                                 'temperature' => $donnees['temperature'],
                                 'pleurs' => $donnees['pleurs'],
