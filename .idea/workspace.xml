@@ -4,17 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/view/view-menu.php" line="21" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3243a0f8-a3f1-427d-94b7-e27a6a879cab" name="Default" comment="- Commit">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a5afad27-7cc2-4a45-a502-c19b08ccedef.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a5afad27-7cc2-4a45-a502-c19b08ccedef.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a5afad27-7cc2-4a45-a502-c19b08ccedef/storage_v2/_src_/schema/ram.HrgBAA.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a5afad27-7cc2-4a45-a502-c19b08ccedef/storage_v2/_src_/schema/ram.HrgBAA.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/view-index.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/view-index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/view-inscription-echouee.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/view-inscription-reussi.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/view-inscription.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/view-inscription.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/view-menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/view-menu.php" afterDir="false" />
-    </list>
+    <list default="true" id="3243a0f8-a3f1-427d-94b7-e27a6a879cab" name="Default" comment="- Commit" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +34,7 @@
     <session id="1408967915">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.34" value="1" />
           <entry key="project.open.time.35" value="1" />
@@ -133,7 +123,7 @@
         <entry file="file://$PROJECT_DIR$/view/view-gerer-enfant.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1378">
-              <caret line="54" column="25" lean-forward="true" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+              <caret line="54" column="25" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -393,7 +383,7 @@
       <workItem from="1553688943459" duration="9077000" />
       <workItem from="1554029946301" duration="173000" />
       <workItem from="1554031218961" duration="1136000" />
-      <workItem from="1554035945478" duration="3690000" />
+      <workItem from="1554035945478" duration="4307000" />
     </task>
     <task id="LOCAL-00001" summary="- Commit iniatial&#10;- Mission 2">
       <created>1537965195499</created>
@@ -424,7 +414,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131090000" />
+    <option name="totallyTimeSpent" value="131707000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -437,9 +427,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14392324" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14392324" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -452,7 +441,7 @@
       <window_info anchor="bottom" id="Tail" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32929516" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49946752" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49946752" weight="0.32929516" />
       <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49853587" weight="0.32819384" />
       <window_info anchor="bottom" id="PHP-CGI Server" order="12" />
       <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49946752" weight="0.3288889" />
@@ -780,7 +769,7 @@
     <entry file="file://$PROJECT_DIR$/view/view-gerer-enfant.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1378">
-          <caret line="54" column="25" lean-forward="true" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
+          <caret line="54" column="25" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="25" />
         </state>
       </provider>
     </entry>
