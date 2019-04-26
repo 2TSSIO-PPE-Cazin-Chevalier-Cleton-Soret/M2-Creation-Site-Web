@@ -123,7 +123,7 @@ endif;
                         <?php
                         if($req->rowCount() != 0) {
                         foreach($req as $donnees) {
-                            $idEnfant = $donnees['enfId'];
+                            $idEnfant = $donnees['id'];
                             $result[$idEnfant] = array(
                                 'prenom' => $donnees['prenom'],
                                 'sante' => $donnees['sante'],
