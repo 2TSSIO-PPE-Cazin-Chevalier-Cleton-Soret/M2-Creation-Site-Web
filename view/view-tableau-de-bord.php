@@ -3,7 +3,7 @@
         <div class="card-body">
             <?php
             $bdd = DB::getInstance();
-            $req = $bdd->query('SELECT * FROM membres WHERE id='.$_SESSION['id'].'');
+            $req = $bdd->query('CALL recupererInformationsUtilisateur('.$_SESSION['id'].')');
             while($donnees = $req->fetch()) {
                 $type = $donnees['type'];
                 $nbrEnfant = $donnees['nbrEnfant'];
