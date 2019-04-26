@@ -23,7 +23,7 @@
                 $req = $bdd->query('
                                     SELECT count(*)
                                     FROM membres AS m
-                                    INNER JOIN enfants AS e ON m.id = e.idParent
+                                    INNER JOIN enfant AS e ON m.id = e.enfId
                                     WHERE id='.$_SESSION['id'].'');
                 while($count = $req->fetch()) {
                     $nbrEnfantCount = $count[0];
@@ -58,7 +58,7 @@
                                     <select name="enfant" class="form-control">
                                         <?php
                                         $bdd = DB::getInstance();
-                                        $req = $bdd->query('SELECT * FROM enfants WHERE idNounou = '.$_SESSION['id'].'');
+                                        $req = $bdd->query('SELECT * FROM enfant WHERE idNounou = '.$_SESSION['id'].'');
                                         while($donnees = $req->fetch()) {
                                             echo '<option name="enfant" value="'.strtolower($donnees['idEnfant']).'">'.$donnees['prenom'].'</option>';
                                         }
